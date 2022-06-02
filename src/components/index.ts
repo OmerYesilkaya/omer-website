@@ -1,4 +1,4 @@
-import Dot from "./Dot";
-import ListItem from "./ListItem";
+import HoverableObject from "./HoverableObject";
+import RippleScene from "./RippleScene";
 
-export { Dot, ListItem };
+export { HoverableObject, RippleScene };

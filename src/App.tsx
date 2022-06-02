@@ -1,10 +1,12 @@
+import { RippleScene } from "components";
 import styled from "styled-components";
 
 function App() {
     return (
         <Center>
             <Box>
-                <Header>OMER YESILKAYA</Header>
+                <RippleScene />
+                {/* <Header>OMER YESILKAYA</Header> */}
             </Box>
         </Center>
     );
@@ -24,8 +26,8 @@ const Center = styled.div`
 const Box = styled.div`
     border-radius: 8px;
     border: 8px solid #22db88;
-    width: 50%;
-    height: 33%;
+    width: 66%;
+    height: 50%;
     padding: 40px;
     display: flex;
     flex-direction: column;
