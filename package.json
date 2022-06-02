@@ -1,85 +1,95 @@
 {
-    "name": "omer-new-website",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@lingui/react": "^3.13.3",
-        "@react-three/drei": "8.16.5",
-        "@react-three/fiber": "7.0.26",
-        "@testing-library/jest-dom": "^5.14.1",
-        "@testing-library/react": "^13.0.0",
-        "@testing-library/user-event": "^13.2.1",
-        "classnames": "^2.3.1",
-        "react": "^18.1.0",
-        "react-dom": "^18.1.0",
-        "react-router-dom": "6",
-        "react-scripts": "5.0.1",
-        "three": "0.138.3",
-        "typescript": "^4.4.2",
-        "web-vitals": "^2.1.0"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "extract": "lingui extract",
-        "compile": "lingui compile",
-        "storybook": "start-storybook -p 6006 -s public",
-        "build-storybook": "build-storybook -s public"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
+  "name": "omer-new-website",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@lingui/react": "^3.13.3",
+    "@react-three/drei": "8.16.5",
+    "@react-three/fiber": "7.0.26",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "classnames": "^2.3.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-router-dom": "6",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.5",
+    "styled-normalize": "^8.0.7",
+    "three": "0.138.3",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "extract": "lingui extract",
+    "compile": "lingui compile",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
         ],
-        "overrides": [
-            {
-                "files": [
-                    "**/*.stories.*"
-                ],
-                "rules": {
-                    "import/no-anonymous-default-export": "off"
-                }
-            }
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      },
+      {
+        "files": [
+          "**/*.stories.*"
         ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "@lingui/cli": "^3.13.3",
-        "@lingui/macro": "^3.13.3",
-        "@storybook/addon-actions": "^6.5.4",
-        "@storybook/addon-essentials": "^6.5.4",
-        "@storybook/addon-interactions": "^6.5.4",
-        "@storybook/addon-links": "^6.5.4",
-        "@storybook/builder-webpack5": "^6.5.4",
-        "@storybook/manager-webpack5": "^6.5.4",
-        "@storybook/node-logger": "^6.5.4",
-        "@storybook/preset-create-react-app": "^4.1.1",
-        "@storybook/react": "^6.5.4",
-        "@storybook/testing-library": "^0.0.11",
-        "@types/jest": "^27.0.1",
-        "@types/node": "^16.7.13",
-        "@types/react": "^18.0.0",
-        "@types/react-dom": "^18.0.0",
-        "@types/three": "0.138.0",
-        "autoprefixer": "^10.4.7",
-        "babel-plugin-named-exports-order": "^0.0.2",
-        "postcss": "^8.4.14",
-        "postcss-loader": "^7.0.0",
-        "prop-types": "^15.8.1",
-        "tailwindcss": "^3.0.24",
-        "webpack": "^5.72.1"
-    }
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@lingui/cli": "^3.13.3",
+    "@lingui/macro": "^3.13.3",
+    "@storybook/addon-actions": "^6.5.6",
+    "@storybook/addon-essentials": "^6.5.6",
+    "@storybook/addon-interactions": "^6.5.6",
+    "@storybook/addon-links": "^6.5.6",
+    "@storybook/builder-webpack5": "^6.5.6",
+    "@storybook/manager-webpack5": "^6.5.6",
+    "@storybook/node-logger": "^6.5.6",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.6",
+    "@storybook/testing-library": "^0.0.11",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/styled-components": "^5.1.25",
+    "@types/three": "0.138.0",
+    "autoprefixer": "^10.4.7",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "postcss": "^8.4.14",
+    "postcss-loader": "^7.0.0",
+    "prop-types": "^15.8.1",
+    "webpack": "^5.73.0"
+  }
 }

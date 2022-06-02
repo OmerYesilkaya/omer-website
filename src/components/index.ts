@@ -1,4 +1,4 @@
 import Dot from "./Dot";
-import Robo3D from "./Robo3D";
+import ListItem from "./ListItem";
 
-export { Dot, Robo3D };
+export { Dot, ListItem };
