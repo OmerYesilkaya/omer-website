@@ -31,13 +31,11 @@ const GlobalStyle = createGlobalStyle`
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-    <React.StrictMode>
-        <I18nProvider i18n={i18n}>
-            <GlobalStyle />
-            <Normalize />
-            <App />
-        </I18nProvider>
-    </React.StrictMode>
+    <I18nProvider i18n={i18n}>
+        <GlobalStyle />
+        <Normalize />
+        <App />
+    </I18nProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

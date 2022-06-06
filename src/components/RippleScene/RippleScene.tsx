@@ -1,39 +1,45 @@
-import { Vector3 } from "three";
-import { Canvas } from "@react-three/fiber";
+import { useEffect, useRef } from "react";
 
-import { HoverableObject } from "components";
+import { useThree } from "@react-three/fiber";
+import * as THREE from "three";
+
+import { MeshGridContainer } from "components";
 import { ThreeUtils } from "lib";
+import { Vector3 } from "three";
 
-import * as Styled from "./RippleScene.styled";
+type Props = {
+    containerBoxRef: React.RefObject<HTMLDivElement>;
+};
 
-function calculateObjectPosition(objectIndex: number, gridSize: number): Vector3 {
-    /* TODO: 
-  - calculate row count
-  - calculate column count
-  - get current index's col and row index
-  - divide canvas width to total col count and store it in colSize
-  - divide canvas height to total row count and store it in rowSize
-  - multiply current index's col count with colSize and store it in objectPosX
-  - multiply current index's row count with rowSize and store it in objectPosY
-  - return new Vector3(objectPosX, objectPosY, 0);
-  */
-    return new Vector3(0, 0, 0);
-}
+const RippleScene: React.FC<Props> = ({ containerBoxRef }) => {
+    const camera = useThree((state) => state.camera);
+    const mouseRef = useRef<THREE.Vector3>(new Vector3(999, 999, 999));
+    const pointLightRef = useRef<THREE.PointLight>(null);
 
-const RippleScene: React.FC = () => {
-    const objects = ThreeUtils.generateObjectPool(20);
+    useEffect(() => {
+        function handleMouseMove(event: MouseEvent) {
+            const rect = containerBoxRef.current?.getBoundingClientRect();
+            if (!rect || !mouseRef.current) return;
+            const normalizedPos = ThreeUtils.getNormalizedPosition(event.clientX, event.clientY, rect);
+            const direction = ThreeUtils.projectScreenToWorld(normalizedPos, camera);
+            mouseRef.current = direction;
+        }
+        document.addEventListener("mousemove", handleMouseMove);
+        return () => document.removeEventListener("mousemove", handleMouseMove);
+    }, [camera, containerBoxRef]);
+
+    useEffect(() => {
+        if (!pointLightRef.current) return;
+        pointLightRef.current.lookAt(camera.position);
+    }, [camera.position]);
+
     return (
-        <Styled.Container>
-            <Canvas>
-                <ambientLight />
-                <pointLight position={[10, 10, 10]} />
-                {objects.map(({ id, component: Component, type }, index) => (
-                    <HoverableObject key={id} type={type} position={calculateObjectPosition(index, objects.length)}>
-                        <Component />
-                    </HoverableObject>
-                ))}
-            </Canvas>
-        </Styled.Container>
+        <>
+            <ambientLight intensity={0.1} color={"#41e3ff"} />
+            <pointLight ref={pointLightRef} position={[0, 25, 0]} color="#c9eff7" intensity={0.5} />
+            <rectAreaLight intensity={0.2} />
+            <MeshGridContainer mouseRef={mouseRef} />
+        </>
     );
 };
 
