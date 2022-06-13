@@ -1,20 +1,13 @@
 import { Torus } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { MeshStandardMaterialProps, useFrame } from "@react-three/fiber";
 import { MathUtils } from "lib";
 import { useRef } from "react";
 import * as THREE from "three";
 
-const material: any = {
-    thickness: 5,
-    roughness: 0,
-    clearcoat: 1,
-    clearcoatRoughness: 0,
-    transmission: 1,
-    ior: 1.25,
-    envMapIntensity: 25,
-    color: "#ffffff",
-    attenuationTint: "#ffe79e",
-    attenuationDistance: 0,
+const material: MeshStandardMaterialProps = {
+    roughness: 0.04,
+    metalness: 0.88,
+    color: "#aa0c56",
 };
 
 type Props = {
@@ -70,7 +63,7 @@ const HoverableObject: React.FC<Props> = ({ position, mouseRef }) => {
         <group position={position} ref={groupRef}>
             <group ref={innerGroupRef}>
                 <Torus args={[0.8, 0.2, 64, 32]}>
-                    <meshPhysicalMaterial {...material} />
+                    <meshStandardMaterial {...material} />
                 </Torus>
             </group>
         </group>
